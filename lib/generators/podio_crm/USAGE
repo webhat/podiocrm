@@ -1,0 +1,8 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate podio_crm Thing
+
+    This will create:
+        what/will/it/create
