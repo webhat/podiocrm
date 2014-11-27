@@ -4,20 +4,21 @@ module PodioCrm
 	class PodioCrmGenerator < ActiveRecord::Generators::Base
 		source_root File.expand_path('../templates', __FILE__)
 
-		argument :crm_name, type: :array, default: [], desc: "XXX", banner: "blah:blah:blah"
-		def create_crm_link
-			puts "hi #{class_name}"
-		end
+		argument :crm_names, required: true, type: :array, desc: "XXX", banner: "blah:blah:blah"
 
-		def create_crm_migration
-			puts "ho #{crm_name}"
+		def generate_migration
+			migration_template "podio_crm_migration.rb.erb", "db/migrate/#{migration_file_name}"
 		end
 
 		def migration_name
 			"add_podio_crm_#{crm_names.join("_")}_to_#{name.underscore.pluralize}"
 		end
 
-		def class_name
+		def migration_file_name
+			"#{migration_name}.rb"
+		end
+
+		def migration_class_name
 			name.camelize
 		end
 	end

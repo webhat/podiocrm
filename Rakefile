@@ -15,7 +15,7 @@ end
 require 'rake'
 
 require 'jeweler'
-require './lib/podiocrm/version.rb'
+require './lib/podio_crm/version.rb'
 Jeweler::Tasks.new do |gem|
   gem.name = "podiocrm"
   gem.homepage = "http://github.com/webhat/podiocrm"
@@ -24,7 +24,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = "This module allows linking to a Podio CRM"
   gem.authors = ["Daniel W. Crompton"]
 	gem.email = ['podo+crm@specialbrands.net', '']
-  gem.version = PodioCRM::Version::STRING
+  gem.version = PodioCrm::Version::STRING
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -44,7 +44,7 @@ task :default => :spec
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  version = PodioCRM::Version::STRING
+  version = PodioCrm::Version::STRING
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "Podio CRM #{version}"

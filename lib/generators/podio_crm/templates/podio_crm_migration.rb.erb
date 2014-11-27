@@ -1,0 +1,10 @@
+class <%= migration_class_name %> < ActiveRecord::Migration
+  def change
+    create_table :<%= table_name %> do |t|
+      <% crm_names.each do |name| -%>
+      t.string :<%= name %>
+      <% end -%>
+      t.timestamps
+    end
+  end
+end

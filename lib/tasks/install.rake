@@ -1,6 +1,6 @@
 
 namespace :podiocrm do
-	task :users => :environment do
+	task :install => :environment do
 		puts 'Installed Podio CRM'
 	end
 end

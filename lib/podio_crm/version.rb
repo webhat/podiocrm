@@ -1,5 +1,5 @@
 # in lib/podiocrm/version.rb
-class PodioCRM
+module PodioCrm
   module Version
     MAJOR = 0
     MINOR = 0

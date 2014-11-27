@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gemspec
+#gemspec
 
 if RUBY_VERSION =~ /1.9/
 	  Encoding.default_external = Encoding::UTF_8

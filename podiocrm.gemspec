@@ -19,12 +19,19 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
+    ".rspec",
+    ".travis.yml",
     "Gemfile",
     "Gemfile.lock",
+    "LICENSE",
+    "README.md",
     "Rakefile",
-    "lib/podiocrm.rb",
-    "lib/podiocrm/version.rb",
-    "podiocrm.gemspec"
+    "lib/generators/podio_crm/USAGE",
+    "lib/generators/podio_crm/install_generator.rb",
+    "lib/generators/podio_crm/podio_crm_generator.rb",
+    "lib/tasks/install.rake",
+    "podiocrm.gemspec",
+    "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/webhat/podiocrm"
   s.licenses = ["LGPLv2"]

@@ -8,12 +8,6 @@ GIT
       faraday (~> 0.9.0)
       multi_json
 
-PATH
-  remote: .
-  specs:
-    podiocrm (0.0.2)
-      podio
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -205,7 +199,6 @@ DEPENDENCIES
   guard-yard (>= 2.1.4)
   jeweler (~> 2.0.1)
   podio!
-  podiocrm!
   rails (>= 3.1.0)
   rdoc (~> 3.12)
   rspec (>= 3.1.0)
