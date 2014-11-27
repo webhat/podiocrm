@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Daniel W. Crompton"]
-  s.date = "2014-11-26"
+  s.date = "2014-11-27"
   s.description = "This module allows linking to a Podio CRM"
   s.email = ["podo+crm@specialbrands.net", ""]
   s.extra_rdoc_files = [
@@ -26,11 +26,20 @@ Gem::Specification.new do |s|
     "LICENSE",
     "README.md",
     "Rakefile",
+    "lib/generators/podio_crm.rb",
     "lib/generators/podio_crm/USAGE",
     "lib/generators/podio_crm/install_generator.rb",
     "lib/generators/podio_crm/podio_crm_generator.rb",
+    "lib/generators/podio_crm/templates/podio_crm_migration.rb.erb",
+    "lib/podio_crm.rb",
+    "lib/podio_crm/railtie.rb",
+    "lib/podio_crm/version.rb",
     "lib/tasks/install.rake",
     "podiocrm.gemspec",
+    "spec/generators/podio_crm/install_generator_spec.rb",
+    "spec/generators/podio_crm/podio_crm_generator_spec.rb",
+    "spec/lib/podio_crm/version_spec.rb",
+    "spec/lib/podio_crm_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/webhat/podiocrm"

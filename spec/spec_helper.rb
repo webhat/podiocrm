@@ -12,3 +12,6 @@ require 'generators/podio_crm'
 RSpec.configure do |config|
   # some (optional) config here
 end
+
+# @TODO: find a better solution than this hackedy hack
+ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
