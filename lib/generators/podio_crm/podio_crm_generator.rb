@@ -4,14 +4,22 @@ module PodioCrm
 	class PodioCrmGenerator < ActiveRecord::Generators::Base
 		source_root File.expand_path('../templates', __FILE__)
 
-		argument :crm_names, required: true, type: :array, desc: "XXX", banner: "blah:blah:blah"
+		argument :attributes, required: true, type: :array, desc: "", banner: "NAME PODIO_APP_ID field_id[:type] field_id[:type] model:belongs_to"
+
+		def set_app_id
+			@app_id ||= attributes.shift
+		end
 
 		def generate_migration
 			migration_template "podio_crm_migration.rb.erb", "db/migrate/#{migration_file_name}"
 		end
 
+		def app_id
+			@app_id
+		end
+
 		def migration_name
-			"add_podio_crm_#{crm_names.join("_")}_to_#{name.underscore.pluralize}"
+			"add_podio_crm_#{app_id.human_name}_to_#{name.underscore.pluralize}"
 		end
 
 		def migration_file_name
@@ -19,7 +27,7 @@ module PodioCrm
 		end
 
 		def migration_class_name
-			name.camelize
+			migration_name.camelize
 		end
 	end
 end
