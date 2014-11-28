@@ -32,11 +32,11 @@ deploy:
     tags: true
     repo: webhat/podio_crm
 script:
-- cd spec/podiocrm-app/
-- bundle exec rake db:migrate --trace
-- bundle exec rake db:test:prepare
-- cd ../..
 - bundle exec rake
+  #- cd spec/podiocrm-app/
+  #- bundle exec rake db:migrate --trace
+  #- bundle exec rake db:test:prepare
+  #- cd ../..
 before_install:
 - bundle config build.nokogiri --use-system-libraries
 env:

@@ -35,4 +35,5 @@ group :development, :test do
 	gem 'rspec', '>= 3.1.0'
 	gem 'rspec-rails', '>= 3.1.0'
 	gem 'rspec-mocks'
+	gem 'coveralls', require: false
 end
