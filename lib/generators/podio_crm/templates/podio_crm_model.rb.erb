@@ -3,11 +3,11 @@ class <%= class_name %> < ActiveRecord::Base
 	belongs_to :<%= belongs %>
 	<% unless rails_4? -%>
 		attr_accessible <% -%>
-		<% @fields.each do |field| -%>
+		<% fields.each do |field| -%>
 			:<%= field[:label].parameterize.underscore.to_sym -%>,
 		<% end %>
 	<% end %>
-	<% @fields.each do |field| %>
+	<% fields.each do |field| %>
 		def <%= field[:label].parameterize.underscore %>=(value)
 			self.field_<%= field[:field_id] %> = value
 		end

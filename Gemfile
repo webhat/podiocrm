@@ -35,5 +35,7 @@ group :development, :test do
 	gem 'rspec', '>= 3.1.0'
 	gem 'rspec-rails', '>= 3.1.0'
 	gem 'rspec-mocks'
+	gem 'generator_spec'
 	gem 'coveralls', require: false
+	gem 'pry-byebug'
 end

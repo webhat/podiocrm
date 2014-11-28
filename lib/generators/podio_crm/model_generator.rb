@@ -47,7 +47,11 @@ module PodioCrm
 		private
 
 		def concat_field_ids
-			@fields.map	{|f| f[:field_id] }.join(' ')
+			fields.map	{|f| f[:field_id] }.join(' ')
+		end
+
+		def fields
+			@fields
 		end
 
 		def authenticate_podio
