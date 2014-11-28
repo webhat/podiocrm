@@ -33,7 +33,7 @@ module PodioCrm
 		end
 
 		def generate_object_model
-			template 'podio_crm_model.rb.erb', "app/models/#{name}.rb" 
+			template 'podio_crm_model.rb.erb', "app/models/#{file_name}.rb" 
 		end
 
 		def belongs
@@ -65,7 +65,11 @@ module PodioCrm
 		end
 
 		def class_name
-			name.camelize
+			file_name.camelize
+		end
+
+		def file_name
+			name.singularize
 		end
 
 		def rails_4?
