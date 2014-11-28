@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/webhat/podiocrm.svg)](https://travis-ci.org/webhat/podiocrm)
+[![Gem Version](https://badge.fury.io/rb/podiocrm.svg)](http://badge.fury.io/rb/podiocrm)
 
 This gem creates a class which mirrors the CRM created on Podio.
 
