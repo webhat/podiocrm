@@ -1,0 +1,11 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate podio_crm:install
+    rails generate podio_crm:model Thing PODIO_APP_ID
+    rails generate podio_crm:podio_crm Thing PODIO_APP_ID field_id[:name] field_id:[type] model:belongs_to
+
+
+    This will create:
+        Install podio_crm in the initializers

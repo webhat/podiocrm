@@ -1,0 +1,19 @@
+class <%= migration_class_name %> < ActiveRecord::Migration
+  def change
+		# WARNING: Only modify the lines below if you know what you are doing!
+    create_table :<%= table_name %> do |t|
+      <% attributes.each do |attribute| -%>
+        <% if attribute.type.nil? %>
+               t.string :field_<%= attribute.name %>
+           <% else -%>
+						<% if attribute.type.eql? :belongs_to -%>
+							t.<%= attribute.type %> :<%= attribute.name.downcase.singularize %>
+						<% else -%>
+							t.<%= attribute.type %> :field_<%= attribute.name.downcase.singularize %>
+						<% end -%>
+         <% end -%>
+       <% end -%>
+       t.timestamps
+    end
+  end
+end

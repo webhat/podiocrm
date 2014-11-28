@@ -14,8 +14,38 @@ Gem::Specification.new do |s|
   s.date = "2014-11-28"
   s.description = "This module allows linking to a Podio CRM"
   s.email = ["podo+crm@specialbrands.net", ""]
+  s.extra_rdoc_files = [
+    "LICENSE",
+    "README.md"
+  ]
   s.files = [
-    "podiocrm.gemspec"
+    ".rspec",
+    ".travis.yml",
+    "Gemfile",
+    "Gemfile.lock",
+    "LICENSE",
+    "README.md",
+    "Rakefile",
+    "lib/generators/podio_crm.rb",
+    "lib/generators/podio_crm/USAGE",
+    "lib/generators/podio_crm/install_generator.rb",
+    "lib/generators/podio_crm/model_generator.rb",
+    "lib/generators/podio_crm/podio_crm_generator.rb",
+    "lib/generators/podio_crm/templates/podio_crm_migration.rb.erb",
+    "lib/generators/podio_crm/templates/podio_crm_model.rb.erb",
+    "lib/podio_crm.rb",
+    "lib/podio_crm/initialize.rb",
+    "lib/podio_crm/railtie.rb",
+    "lib/podio_crm/version.rb",
+    "lib/tasks/install.rake",
+    "podiocrm.gemspec",
+    "spec/generators/podio_crm/install_generator_spec.rb",
+    "spec/generators/podio_crm/model_generator_spec.rb",
+    "spec/generators/podio_crm/podio_crm_generator_spec.rb",
+    "spec/lib/podio_crm/version_spec.rb",
+    "spec/lib/podio_crm_spec.rb",
+    "spec/podio_crm/initialize_spec.rb",
+    "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/webhat/podiocrm"
   s.licenses = ["LGPLv2"]

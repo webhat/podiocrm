@@ -1,0 +1,53 @@
+language: ruby
+rvm:
+- 2.0.0
+- 1.9.3
+- rbx-19mode
+- ruby-head
+matrix:
+  fast_finish: true
+  include:
+  - rvm: jruby-19mode
+    env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
+  - rvm: jruby-20mode
+    env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
+  - rvm: jruby-21mode
+    env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
+  - rvm: jruby-head
+    env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
+  allow_failures:
+  - rvm: jruby-19mode  # inconsistent travis-ci failures
+  - rvm: jruby-20mode  # inconsistent travis-ci failures
+  - rvm: jruby-21mode  # inconsistent travis-ci failures
+  - rvm: jruby-head    # inconsistent travis-ci failures
+  - rvm: rbx-19mode
+  - rvm: ruby-head
+  - env: "RAILS_VERSION=master"
+deploy:
+  provider: rubygems
+  api_key:
+    secure: fOxL5TmqeXQWp3rxxQLX9h1r1wRPVC9JizKhycQgMvxaUR3TztiLRjmNQplPlseIsBtdua3jtcT87v0/j3p3BUjTz3wazvKlRNHc73GQ1XGrSYQAsImdVAnRwRvT1d8NH0+f9lHCRuGj7kRTsqHKm7DkAmsqR/PhqvNKzKnKs8g=
+  gem: podio_crm
+  on:
+    tags: true
+    repo: webhat/podio_crm
+script:
+- cd spec/podiocrm-app/
+- bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- cd ../..
+- bundle exec rake
+before_install:
+- bundle config build.nokogiri --use-system-libraries
+env:
+  - "RAILS_VERSION=3.1.0"
+  - "RAILS_VERSION=3.2.0"
+  - "RAILS_VERSION=4.0.0"
+  - "RAILS_VERSION=4.1.0"
+  - "RAILS_VERSION=master"
+notifications:
+  irc:
+    channels:
+      - irc.freenode.org#podiocrm
+    on_success: never
+    on_failure: change
