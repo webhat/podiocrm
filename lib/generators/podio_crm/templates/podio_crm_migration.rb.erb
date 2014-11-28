@@ -5,8 +5,12 @@ class <%= migration_class_name %> < ActiveRecord::Migration
       <% attributes.each do |attribute| -%>
         <% if attribute.type.nil? %>
                t.string :field_<%= attribute.name %>
-           <% else %>
-             t.<%= attribute.type %> :field_<%= attribute.name.downcase.singularize %>
+           <% else -%>
+						<% if attribute.type.eql? :belongs_to -%>
+							t.<%= attribute.type %> :<%= attribute.name.downcase.singularize %>
+						<% else -%>
+							t.<%= attribute.type %> :field_<%= attribute.name.downcase.singularize %>
+						<% end -%>
          <% end -%>
        <% end -%>
        t.timestamps

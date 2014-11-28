@@ -33,8 +33,12 @@ module PodioCrm
 			generate 'podio_crm:podio_crm', "#{name} #{app_id} #{concat_field_ids} #{belongs}:belongs_to"
 		end
 
+		def generate_object_model
+			template 'podio_crm_model.rb.erb', "app/models/#{name}.rb" 
+		end
+
 		def belongs
-			@belongs.name
+			@belongs.name.parameterize.underscore.singularize
 		end
 
 		def app_id
@@ -58,6 +62,14 @@ module PodioCrm
 				puts 'Type your password and hit enter'
 				@password = STDIN.noecho(&:gets).strip
 			end
+		end
+
+		def class_name
+			name.camelize
+		end
+
+		def rails_4?
+			Rails::VERSION::MAJOR == 4
 		end
 	end
 end
