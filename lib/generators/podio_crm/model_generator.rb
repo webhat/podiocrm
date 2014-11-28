@@ -14,7 +14,6 @@ module PodioCrm
 
 		def get_fields
 			@fields = []
-			get_podio_password
 			authenticate_podio
 			items = Podio::Item.find_all(app_id, limit: 1, offset: 1)
 			items.all.each do |item|
@@ -52,15 +51,16 @@ module PodioCrm
 		end
 
 		def authenticate_podio
-			Podio.client.authenticate_with_credentials(ENV['PODIO_USERNAME'], @password)
+			error 'Podio not installed, try running `rails g podio_crm:install` first' if Podio.client.nil?
+			Podio.client.authenticate_with_credentials(ENV['PODIO_USERNAME'], get_podio_password)
 		end
 
 		def get_podio_password
 			if ENV['PODIO_PASSWORD']
-				@password = ENV['PODIO_PASSWORD']
+				ENV['PODIO_PASSWORD']
 			else
-				puts 'Type your password and hit enter'
-				@password = STDIN.noecho(&:gets).strip
+				puts 'Type your password and hit enter:'
+				STDIN.noecho(&:gets).strip
 			end
 		end
 
@@ -70,6 +70,11 @@ module PodioCrm
 
 		def rails_4?
 			Rails::VERSION::MAJOR == 4
+		end
+
+		def error message
+			$stderr.puts "Error: #{ message }"
+			exit(-1)
 		end
 	end
 end
