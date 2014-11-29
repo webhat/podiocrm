@@ -37,5 +37,4 @@ group :development, :test do
 	gem 'rspec-mocks'
 	gem 'generator_spec'
 	gem 'coveralls', require: false
-	gem 'pry-byebug'
 end

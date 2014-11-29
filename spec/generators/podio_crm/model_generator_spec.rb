@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pry-byebug'
 
 describe PodioCrm::ModelGenerator, type: :generator do
 	destination File.expand_path('.')
